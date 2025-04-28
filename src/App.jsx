@@ -1,8 +1,7 @@
 // src/App.jsx
-import React from 'react';
-import ProfileCard from './ProfileCard';
-import './App.css'
-
+import React from "react";
+import ProfileCard from "./ProfileCard";
+import "./App.css";
 
 function App() {
   const profiles = [
@@ -24,18 +23,23 @@ function App() {
   ];
 
   return (
-    <div>
+    <div className="header">
       <h1>Unsere Teammitglieder</h1>
-      <p>Hier findest du eine kurze Übersicht über unsere tollen Entwicklerinnen und Entwickler:</p>
+      <p>
+        Hier findest du eine kurze Übersicht über unsere tollen Entwicklerinnen
+        und Entwickler:
+      </p>
 
-      {profiles.map((profile, index) => (
-        <ProfileCard 
-          key={index}
-          name={profile.name}
-          description={profile.description}
-          skills={profile.skills}
-        />
-      ))}
+      <div className="profile-list">
+        {profiles.map((profile, index) => (
+          <ProfileCard
+            key={index}
+            name={profile.name}
+            description={profile.description}
+            skills={profile.skills}
+          />
+        ))}
+      </div>
     </div>
   );
 }
