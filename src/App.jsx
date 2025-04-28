@@ -1,6 +1,8 @@
 // src/App.jsx
 import React from 'react';
 import ProfileCard from './ProfileCard';
+import './App.css'
+
 
 function App() {
   const profiles = [
