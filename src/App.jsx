@@ -29,7 +29,9 @@ function App() {
         Hier findest du eine kurze Übersicht über unsere tollen Entwicklerinnen
         und Entwickler:
       </p>
-
+      <p>
+        Klicke auf den Like-Button, um deine Unterstützung zu zeigen!
+      </p>
       <div className="profile-list">
         {profiles.map((profile, index) => (
           <ProfileCard

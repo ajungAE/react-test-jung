@@ -29,6 +29,21 @@
   max-width: 400px;
 }
 
+.profile-card button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.profile-card button:hover {
+  background-color: #b61b821e;
+}
+
+
 
 .profile-card h2 {
   margin-top: 0;
