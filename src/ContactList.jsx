@@ -42,6 +42,12 @@ function ContactList() {
         onChange={(e) => setName(e.target.value)}
       />
       <input
+        type="text"
+        placeholder="Telefonnummer"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+      />
+      <input
         type="email"
         placeholder="E-Mail"
         value={email}
