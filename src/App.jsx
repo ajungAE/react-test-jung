@@ -1,9 +1,14 @@
 // src/App.jsx
-import React from "react";
+import React, { useState } from "react";
 import ProfileCard from "./ProfileCard";
 import "./App.css";
+import TodoList from "./TodoList";
+import ContactList from "./ContactList";
+
 
 function App() {
+  const [showTodoList, setShowTodoList] = useState(true);
+
   const profiles = [
     {
       name: "Jane Doe",
@@ -29,9 +34,13 @@ function App() {
         Hier findest du eine kurze Übersicht über unsere tollen Entwicklerinnen
         und Entwickler:
       </p>
-      <p>
-        Klicke auf den Like-Button, um deine Unterstützung zu zeigen!
-      </p>
+      <button onClick={() => setShowTodoList((prev) => !prev)}>
+        {showTodoList ? "Todolist ausblenden" : "Todolist anzeigen"}
+      </button>
+      {showTodoList && <TodoList />}
+      <p>Klicke auf den Like-Button, um deine Unterstützung zu zeigen!</p>
+      <ContactList />
+
       <div className="profile-list">
         {profiles.map((profile, index) => (
           <ProfileCard
