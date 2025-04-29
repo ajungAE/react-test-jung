@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./ContactList.css";
 
 function ContactList() {
   const [contacts, setContacts] = useState([]);
@@ -53,13 +54,22 @@ function ContactList() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <button onClick={addContact}>Hinzufügen</button>
+      <button className="add-button" onClick={addContact}>
+        Hinzufügen
+      </button>
 
       <ul>
         {contacts.map((contact, index) => (
-          <li key={index}>
-            📞 {contact.name} – {contact.phone} – 📧 {contact.email}
-            <button onClick={() => deleteContact(index)}>Löschen</button>
+          <li key={index} className="contact-item">
+            <span className="contact-text">
+            👤 {contact.name} – 📞 {contact.phone} – 📧 {contact.email}
+            </span>
+            <button
+              className="delete-button"
+              onClick={() => deleteContact(index)}
+            >
+              Löschen
+            </button>
           </li>
         ))}
       </ul>
