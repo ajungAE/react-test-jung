@@ -4,7 +4,7 @@ function ContactList() {
   const [contacts, setContacts] = useState([]);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  
+  const [email, setEmail] = useState("");
 
   // Laden der Kontakte aus localStorage (beim Mounten)
   useEffect(() => {
@@ -19,10 +19,11 @@ function ContactList() {
 
   const addContact = () => {
     if (name.trim() && phone.trim()) {
-      const newContact = { name, phone };
+      const newContact = { name, phone, email };
       setContacts([...contacts, newContact]);
       setName("");
       setPhone("");
+      setEmail("");
     }
   };
 
@@ -30,7 +31,6 @@ function ContactList() {
     const updated = contacts.filter((_, i) => i !== indexToRemove);
     setContacts(updated);
   };
-  
 
   return (
     <div className="contact-list">
@@ -42,19 +42,19 @@ function ContactList() {
         onChange={(e) => setName(e.target.value)}
       />
       <input
-        type="text"
-        placeholder="Telefonnummer"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
+        type="email"
+        placeholder="E-Mail"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <button onClick={addContact}>Hinzufügen</button>
 
       <ul>
         {contacts.map((contact, index) => (
           <li key={index}>
-          📞 {contact.name} – {contact.phone}
-          <button onClick={() => deleteContact(index)}>Löschen</button>
-        </li>
+            📞 {contact.name} – {contact.phone} – 📧 {contact.email}
+            <button onClick={() => deleteContact(index)}>Löschen</button>
+          </li>
         ))}
       </ul>
     </div>
