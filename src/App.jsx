@@ -4,10 +4,15 @@ import ProfileCard from "./ProfileCard";
 import "./App.css";
 import TodoList from "./TodoList";
 import ContactList from "./ContactList";
+import TodoWidget from "./TodoWidget";
+
+
 
 
 function App() {
   const [showTodoList, setShowTodoList] = useState(true);
+  const [todos, setTodos] = useState([]);
+
 
   const profiles = [
     {
@@ -29,17 +34,22 @@ function App() {
 
   return (
     <div className="header">
+      
       <h1>Unsere Teammitglieder</h1>
       <p>
         Hier findest du eine kurze Übersicht über unsere tollen Entwicklerinnen
         und Entwickler:
       </p>
+
       <button onClick={() => setShowTodoList((prev) => !prev)}>
         {showTodoList ? "Todolist ausblenden" : "Todolist anzeigen"}
       </button>
-      {showTodoList && <TodoList />}
-      <p>Klicke auf den Like-Button, um deine Unterstützung zu zeigen!</p>
+
+      {showTodoList && <TodoList todos={todos} setTodos={setTodos} />}
+      
       <ContactList />
+
+      <p>Klicke auf den Like-Button, um deine Unterstützung für unsere Mitarbeiter zu zeigen!</p>
 
       <div className="profile-list">
         {profiles.map((profile, index) => (
@@ -51,6 +61,8 @@ function App() {
           />
         ))}
       </div>
+
+      <TodoWidget todos={todos} />
     </div>
   );
 }
