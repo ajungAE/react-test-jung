@@ -1,7 +1,6 @@
 import React from "react";
  
-function TodoList() {
-  const [todos, setTodos] = React.useState([]);
+function TodoList({ todos, setTodos }) {
   const [newTodo, setNewTodo] = React.useState("");
  
   const addTodo = () => {
@@ -12,7 +11,7 @@ function TodoList() {
   };
  
   return (
-    <div>
+    <div className="todo-input-box">
       <h3>To-Do Liste</h3>
       <input
         type="text"
@@ -21,11 +20,11 @@ function TodoList() {
         placeholder="Neue Aufgabe hinzufügen"
       />
       <button onClick={addTodo}>Hinzufügen</button>
-      <ul>
+      {/* <ul>
         {todos.map((todo, index) => (
           <li key={index}>{todo}</li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }
