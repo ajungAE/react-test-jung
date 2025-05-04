@@ -1,40 +1,10 @@
-// src/App.jsx
-import React, { useState } from "react";
-import ProfileCard from "./ProfileCard";
-import "./App.css";
-import TodoList from "./TodoList";
-import ContactList from "./ContactList";
-import TodoWidget from "./TodoWidget";
+import TodoList from "../features/todos/TodoList";
+import TodoWidget from "../components/TodoWidget";
+import ProfileCard from "../components/ProfileCard";
 
-
-
-
-function App() {
-  const [showTodoList, setShowTodoList] = useState(true);
-  const [todos, setTodos] = useState([]);
-
-
-  const profiles = [
-    {
-      name: "Jane Doe",
-      description: "Web Developer aus Berlin",
-      skills: ["JavaScript", "React", "CSS"],
-    },
-    {
-      name: "Max Mustermann",
-      description: "Backend Spezialist aus Hamburg",
-      skills: ["Node.js", "Express", "MongoDB"],
-    },
-    {
-      name: "Sara Müller",
-      description: "UI/UX Designerin aus München",
-      skills: ["Figma", "Adobe XD", "HTML/CSS"],
-    },
-  ];
-
+function Home({ todos, setTodos, profiles, showTodoList, setShowTodoList }) {
   return (
     <div className="header">
-      
       <h1>Unsere Teammitglieder</h1>
       <p>
         Hier findest du eine kurze Übersicht über unsere tollen Entwicklerinnen
@@ -46,8 +16,6 @@ function App() {
       </button>
 
       {showTodoList && <TodoList todos={todos} setTodos={setTodos} />}
-      
-      <ContactList />
 
       <p>Klicke auf den Like-Button, um deine Unterstützung für unsere Mitarbeiter zu zeigen!</p>
 
@@ -67,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

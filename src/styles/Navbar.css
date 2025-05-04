@@ -1,0 +1,27 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white; /* wichtig, damit sie nicht durchsichtig ist */
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    background-color: #457b9d;
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: white;
+    background-color: #1d3557;
+  }
+  
